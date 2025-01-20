@@ -5,9 +5,8 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www",
-    "ng": "ng"
+    "build": "ng build --prod",
+    "devstart": "node server.js"
   },
   "private": true,
   "dependencies": {
