@@ -13,12 +13,6 @@ RUN npm install
 # Copy the entire application code to the container
 COPY . .
 
-WORKDIR /app
-
-# Copy the built Angular application from the build stage
-COPY --from=build /app/dist/angular-trading-platform /app/dist/angular-trading-platform
-
-
 # Expose the port (assuming the app runs on port 8080 or any other port)
 EXPOSE 8080
 
