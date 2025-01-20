@@ -13,9 +13,6 @@ RUN npm install
 # Copy the entire application code to the container
 COPY . .
 
-# Build the Angular frontend (npm run-script ng build)
-RUN npm run-script ng build
-
 # Expose the port (assuming the app runs on port 8080 or any other port)
 EXPOSE 8080
 
