@@ -10,10 +10,10 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application code
-#COPY . .
+COPY . .
 
 # Build the Angular application
-npm run-script ng build
+RUN npm run-script ng build
 
 # Stage 2: Serve the Angular application with Node.js
 FROM node:18-alpine
