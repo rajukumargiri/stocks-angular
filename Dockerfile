@@ -1,36 +1,23 @@
-# Stage 1: Build the Angular application
-FROM node:18-alpine AS build
+# Use Node.js version 12 as the base image
+FROM node:12
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json first to leverage Docker cache
 COPY package*.json ./
 
-# Install dependencies
+# Install all dependencies (npm install)
 RUN npm install
 
-# Copy the rest of the application code
-#COPY . .
+# Copy the entire application code to the container
+COPY . .
 
-# Build the Angular application
+# Build the Angular frontend (npm run-script ng build)
 RUN npm run-script ng build
 
-# Stage 2: Serve the Angular application with Node.js
-FROM node:18-alpine
-
-WORKDIR /app
-
-# Copy the built Angular application from the build stage
-COPY --from=build /app/dist/angular-trading-platform /app/dist/angular-trading-platform
-
-# Copy the server file
-COPY server.js .
-
-# Install Express
-RUN npm install express
-
-# Expose port 8080
+# Expose the port (assuming the app runs on port 8080 or any other port)
 EXPOSE 8080
 
-# Start the Node.js server
-CMD ["node", "server.js"]
+# Start the backend and frontend server (npm run devstart)
+CMD ["npm", "run", "devstart"]
