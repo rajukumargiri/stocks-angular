@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular application
-RUN npm run build --prod
+npm run-script ng build
 
 # Stage 2: Serve the Angular application with Node.js
 FROM node:18-alpine
