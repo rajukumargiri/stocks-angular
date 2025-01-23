@@ -20,7 +20,7 @@ COPY . .
 RUN npm run-script ng build
 
 # Expose the port (assuming the app runs on port 8080 or any other port)
-EXPOSE 8080
+EXPOSE 3000
 
 # Start the backend and frontend server (npm run devstart)
 CMD ["npm", "run", "devstart"]
