@@ -2,7 +2,7 @@
 FROM node:12
 
 # Set the environment variable to allow legacy OpenSSL algorithms
-ENV NODE_OPTIONS=--openssl-legacy-provider
+#ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Set the working directory inside the container
 WORKDIR /app
