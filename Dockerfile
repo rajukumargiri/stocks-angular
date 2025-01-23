@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app (use the correct Angular build command)
-RUN npm run build --prod
+RUN npm run-script ng build
 
 # Expose the port (assuming the app runs on port 8080 or any other port)
 EXPOSE 8080
