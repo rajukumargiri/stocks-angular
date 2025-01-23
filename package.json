@@ -5,8 +5,9 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "build": "ng build --prod",
-    "devstart": "node server.js"
+    "start": "node --openssl-legacy-provider ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "ng": "ng"
   },
   "private": true,
   "dependencies": {
